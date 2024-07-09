@@ -6,24 +6,29 @@
     </head>
     <body>
         <div class="left">
-            <div class="search">
-                <input type="text" placeholder="Pokémon name or ID #" id="search-input"/>
+            <form class="search">
+                <input type="text" placeholder="Pokémon name or ID #" id="search-input" required/>
                 <button id="search-button">Search</button>
-            </div>
+            </form>
             <table id="basic-info">
                 <tr>
+                    <td class="label">Pokémon Name</td>
                     <td id="pokemon-name"></td>
                 </tr>
                 <tr>
+                    <td class="label">ID #</td>
                     <td id="pokemon-id"></td>             
                 </tr>
                 <tr>
+                    <td class="label">weight</td>
                     <td id="weight"></td>             
                 </tr>
                 <tr>
+                    <td class="label">height</td>
                     <td id="height"></td>             
                 </tr>
                 <tr>
+                    <td class="label">types</td>
                     <td id="types"></td>             
                 </tr>
             </table>
@@ -32,21 +37,27 @@
         <div class="right">
             <table class="stats">
                 <tr>
+                    <td class="label">hp</td>
                     <td id="hp"></td>  
                 </tr>
                 <tr>
+                    <td class="label">attack</td>
                     <td id="attack"></td> 
                 </tr>
                 <tr>
+                    <td class="label">defense</td>
                     <td id="defense"></td> 
                 </tr>
                 <tr>
+                    <td class="label">special attack</td>
                     <td id="special-attack"></td> 
                 </tr>
                 <tr>
+                    <td class="label">special defense</td>
                     <td id="special-defense"></td> 
                 </tr>
                 <tr>
+                    <td class="label">speed</td>
                     <td id="speed"></td> 
                 </tr>
             </table>
