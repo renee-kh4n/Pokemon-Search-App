@@ -82,20 +82,38 @@ function searchPokemon(){
     getPokemon(pokemonInput);
 }
 
-function navigatePokemon(){
+async function navigatePokemon(){
+    try{
+        const responseAll = await fetch(`${APIurl}`);
 
-    if( id.textContent!== undefined | id.textContent !== null){
+        const data = await responseAll.json();
+
+        let pokemonID = 1
+        if( id.textContent!== undefined | id.textContent !== null){
+            pokemonID = Number(id.textContent);
+        }
+        // console.log(data.results.length);
+        // console.log(data.results[data.results.length-1].id);
+
+        const lastID = data.results[data.results.length-1].id;
+
         next.addEventListener('click', e => {
             e.preventDefault()
-            let pokemonID = Number(id.textContent) + 1;
+            pokemonID += 1;
+
+            if(pokemonID > lastID) pokemonID = 1;
             getPokemon(String(pokemonID));
         })
 
         prev.addEventListener('click', e => {
             e.preventDefault()
-            let pokemonID = Number(id.textContent) - 1;
+            pokemonID -= 1;
+
+            if(pokemonID < 1) pokemonID = lastID;
             getPokemon(String(pokemonID));
-        })
+        });
+    }catch(err){
+        console.log(err);
     }
 
 }
