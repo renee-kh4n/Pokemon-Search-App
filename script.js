@@ -1,4 +1,4 @@
-const APIurl = 'https://pokeapi-proxy.freecodecamp.rocks/'
+const APIurl = 'https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/'
 
 const pokemonName = document.getElementById('pokemon-name');
 const id = document.getElementById('pokemon-id');
@@ -42,6 +42,7 @@ async function searchPokemon(){
     console.log(response);
 
     const pokemonData = await response.json();
+    console.log(pokemonData);
 
     pokemonName.textContent = pokemonData.name;
     id.textContent = pokemonData.id;
