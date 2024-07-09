@@ -16,12 +16,16 @@ body{
 }
 
 .search{
-    padding: auto;
+    padding-top: 0px;
+    padding-bottom: 3px;
     text-align: center;
 }
 
 .left{
     width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .right{
@@ -38,8 +42,12 @@ table{
     width: 90%;
 }
 
-.rigth > table{
+.stats{
     height: 100%;
+}
+
+.basic-info{
+    bottom: 0;
 }
 
 td{
