@@ -38,7 +38,7 @@ async function searchPokemon(){
     const pokemonInput = userInput.value.toLowerCase();
     console.log(pokemonInput);
 
-    const response = await fetch(`APIurl${pokemonInput}`);
+    const response = await fetch(`${APIurl}${pokemonInput}`);
     console.log(response);
 
     const pokemonData = await response.json();
@@ -55,12 +55,12 @@ async function searchPokemon(){
     types.innerHTML = typesHTML;
 
     const stats = pokemonData.stats;
-    hp.textContent = stats[0];
-    attack.textContent = stats[1];
-    defense.textContent = stats[2];
-    specialAttack.textContent = stats[3];
-    specialDefense.textContent = stats[4];
-    speed.textContent = stats[5];
+    hp.textContent = stats[0].base_stat;
+    attack.textContent = stats[1].base_stat;
+    defense.textContent = stats[2].base_stat;
+    specialAttack.textContent = stats[3].base_stat;
+    specialDefense.textContent = stats[4].base_stat;
+    speed.textContent = stats[5].base_stat;
 
     image.src = pokemonData.sprites.front_default;
 
