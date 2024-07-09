@@ -1,0 +1,53 @@
+body{ 
+    background-color: grey;
+    width: 100vw;
+    margin: 0;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.main{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.search{
+    padding: auto;
+    text-align: center;
+}
+
+.left{
+    width: 50%;
+}
+
+.right{
+    flex: 1;
+    height: 100%
+}
+
+table, td{
+    border: solid 1px white;
+    margin: 0 auto;
+}
+
+table{
+    width: 90%;
+}
+
+.rigth > table{
+    height: 100%;
+}
+
+td{
+    width: 50%;
+    padding: 4px;
+}
+
+.label{
+    background-color: rgb(145, 106, 196);
+    color: white;
+}
