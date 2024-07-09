@@ -7,6 +7,7 @@ body{
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
+    background-color: 	#aaaaaa;
 }
 
 .main{
@@ -38,7 +39,7 @@ body{
 }
 
 table, td{
-    border: solid 1px #ff1f1f;
+    border: solid 1px #363b81;
     margin: 0 auto;
 }
 
@@ -109,7 +110,7 @@ span{
     font-size: 45px;
     text-align: center;
     font-weight: bold;
-    border: 1px solid white;
+    border: 3px solid #363b81;
     color: white;
     background-color: #ff1f1f;
 }
