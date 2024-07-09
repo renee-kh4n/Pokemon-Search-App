@@ -16,6 +16,9 @@ const image = document.getElementById('pokemon-img');
 const searchBtn = document.getElementById('search-button');
 const userInput = document.getElementById('search-input');
 
+const prev = document.getElementById('prev');
+const next = document.getElementById('next');
+
 function reset(){
 
     pokemonName.textContent = '';
@@ -28,42 +31,41 @@ function reset(){
     specialAttack.textContent = '';
     specialDefense.textContent = '';
     speed.textContent = '';
+    types.innerHTML = '';
 
     image.src = 'https://i.pinimg.com/564x/17/45/75/1745752335029d4077136573dfc27817.jpg';
 
 }
 
-async function searchPokemon(){
-    try{   
-    const pokemonInput = userInput.value.toLowerCase();
-    console.log(pokemonInput);
 
-    const response = await fetch(`${APIurl}${pokemonInput}`);
-    console.log(response);
-
-    const pokemonData = await response.json();
-    console.log(pokemonData);
-
-    pokemonName.textContent = pokemonData.name;
-    id.textContent = pokemonData.id;
-    weight.textContent = pokemonData.weight;
-    height.textContent = pokemonData.height;
-
-    let typesHTML = '';
-    for(let i = 0; i<pokemonData.types.length; i++){
-        typesHTML += `<span>${pokemonData.types[i].type.name}</span>`
-    }
-    types.innerHTML = typesHTML;
-
-    const stats = pokemonData.stats;
-    hp.textContent = stats[0].base_stat;
-    attack.textContent = stats[1].base_stat;
-    defense.textContent = stats[2].base_stat;
-    specialAttack.textContent = stats[3].base_stat;
-    specialDefense.textContent = stats[4].base_stat;
-    speed.textContent = stats[5].base_stat;
-
-    image.src = pokemonData.sprites.front_default;
+async function getPokemon(pokemonInput){
+    try{
+        const response = await fetch(`${APIurl}${pokemonInput}`);
+        console.log(response);
+    
+        const pokemonData = await response.json();
+        console.log(pokemonData);
+    
+        pokemonName.textContent = pokemonData.name;
+        id.textContent = pokemonData.id;
+        weight.textContent = pokemonData.weight;
+        height.textContent = pokemonData.height;
+    
+        let typesHTML = '';
+        for(let i = 0; i<pokemonData.types.length; i++){
+            typesHTML += `<span>${pokemonData.types[i].type.name}</span>`
+        }
+        types.innerHTML = typesHTML;
+    
+        const stats = pokemonData.stats;
+        hp.textContent = stats[0].base_stat;
+        attack.textContent = stats[1].base_stat;
+        defense.textContent = stats[2].base_stat;
+        specialAttack.textContent = stats[3].base_stat;
+        specialDefense.textContent = stats[4].base_stat;
+        speed.textContent = stats[5].base_stat;
+    
+        image.src = pokemonData.sprites.front_default;
 
     }catch(err){
         reset();
@@ -71,6 +73,34 @@ async function searchPokemon(){
         console.log(err);
     }
 }
+
+function searchPokemon(){
+  
+    const pokemonInput = userInput.value.toLowerCase();
+    console.log(pokemonInput);
+
+    getPokemon(pokemonInput);
+}
+
+function navigatePokemon(){
+
+    if( id.textContent!== undefined | id.textContent !== null){
+        next.addEventListener('click', e => {
+            e.preventDefault()
+            let pokemonID = Number(id.textContent) + 1;
+            getPokemon(String(pokemonID));
+        })
+
+        prev.addEventListener('click', e => {
+            e.preventDefault()
+            let pokemonID = Number(id.textContent) - 1;
+            getPokemon(String(pokemonID));
+        })
+    }
+
+}
+
+navigatePokemon();
 
 searchBtn.addEventListener('click', e => {
     e.preventDefault();
