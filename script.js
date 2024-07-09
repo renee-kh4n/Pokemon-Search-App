@@ -50,7 +50,7 @@ async function searchPokemon(){
     height.textContent = pokemonData.height;
 
     let typesHTML = '';
-    for(let i; i<pokemonData.types.length; i++){
+    for(let i = 0; i<pokemonData.types.length; i++){
         typesHTML += `<div>${pokemonData.types[i].type.name}</div>`
     }
     types.innerHTML = typesHTML;
