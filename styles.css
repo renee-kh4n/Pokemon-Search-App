@@ -1,5 +1,5 @@
 body{ 
-    background-color: grey;
+    background-color: white;
     width: 100vw;
     height: 100vh;
     margin: 0;
@@ -16,12 +16,15 @@ body{
     padding: 0;
     display: flex;
     flex-direction: row;
+
 }
 
 .search{
     padding-top: 0px;
     padding-bottom: 3px;
     text-align: center;
+    color: white;
+    background: #ff1f1f;
 }
 
 .left{
@@ -37,7 +40,7 @@ body{
 }
 
 table, td{
-    border: solid 1px white;
+    border: solid 1px #ff1f1f;
     margin: 0 auto;
 }
 
@@ -59,8 +62,8 @@ td{
 }
 
 .label{
-    background-color: rgb(145, 106, 196);
-    color: white;
+    background-color: #fbd743;
+    color: #363b81;
 }
 
 .image-display{
@@ -97,8 +100,8 @@ img{
 
 span{
     padding: 1px 4px;
-    background: skyblue;
-    color: black;
+    background: #5db9ff;
+    color: 	#363b81;
 }
 
 #prev, #next{
@@ -110,5 +113,5 @@ span{
     font-weight: bold;
     border: 1px solid white;
     color: white;
-    background-color: rgb(145, 106, 196);
+    background-color: #ff1f1f;
 }
